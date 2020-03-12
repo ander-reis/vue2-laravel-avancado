@@ -18,18 +18,33 @@
     ],
     data () {
       return {
-        active: 1,
-        total: 4,
-        totalRegisters: 75
+        active: 1
+      }
+    },
+    computed: {
+      registries () {
+        return this.$store.state.pagination.getList
+      },
+      total () {
+        return this.registries.last_page || 1
+      },
+      totalRegisters () {
+        return this.registries.total || 0
       }
     },
     methods: {
       navigate (n) {
         this.active = n
+        let config = {
+          resource: this.resource,
+          limit: this.totalPerPage,
+          page: n
+        }
+        this.$store.dispatch('getRegistries', config)
       }
     },
     created () {
-      this.$store.dispatch(this.resource)
+      this.$store.dispatch('getRegistries', {resource: this.resource, limit: this.totalPerPage})
     }
   }
 </script>

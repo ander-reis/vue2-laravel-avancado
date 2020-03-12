@@ -10,8 +10,8 @@ export default {
     }
   },
   actions: {
-    getBanks (context) {
-      Vue.http.get('api/banks?limit=200').then(response => {
+    getBanks (context, config) {
+      Vue.http.get(`api/banks?limit=200`).then(response => {
         context.commit('updateBankList', response.data)
       })
     }

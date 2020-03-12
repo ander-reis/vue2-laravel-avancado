@@ -35,6 +35,11 @@ new Vue({
   el: '#app',
   router,
   store,
+  watch: {
+    '$route' (to, from) {
+      this.$store.dispatch('clearRegistries')
+    }
+  },
   template: '<App/>',
   components: { App }
 })

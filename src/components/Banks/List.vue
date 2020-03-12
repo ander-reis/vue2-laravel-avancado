@@ -27,7 +27,7 @@
           </tbody>
         </table>
 
-        <pagination totalPerPage="4" resource="getBanks"></pagination>
+        <pagination totalPerPage="25" resource="banks"></pagination>
 
       </div>
     </div>
@@ -41,11 +41,11 @@
   export default {
     name: 'banks',
     components: {
-      Pagination
+      'pagination': Pagination
     },
     computed: {
       banks () {
-        return this.$store.state.bank.bankList
+        return this.$store.state.pagination.getList
       }
     }
   }
