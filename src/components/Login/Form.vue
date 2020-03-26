@@ -32,7 +32,7 @@
 
 <script>
   import Vue from 'vue'
-  import {CONFIG} from './../../config'
+  import { CONFIG } from './../../config'
 
   export default {
     name: 'login',

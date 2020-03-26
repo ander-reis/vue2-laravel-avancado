@@ -1,0 +1,3 @@
+comando server api:
+php artisan passport:client --password
+gerar client secret
